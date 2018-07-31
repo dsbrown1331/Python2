@@ -47,8 +47,11 @@ for state, abbrev in states.items():
     print("{} state is abbreviated {} and has city {}".format(
 state, abbrev, cities[abbrev]))
 
+
 #here is how you delete from a dictionary
+print_line()
 del states['Oregon']
+print("Good bye Oregon.")
 #now we can print out the dictionary and the "Oregon" key is gone
 print(states)
 
@@ -57,7 +60,18 @@ print_line()
 state = states.get('Texas', None)
 if not state:
     print("Sorry, no Texas.")
+else:
+    print("Texas abbreviation is ", state)
 
 # get a city with a default value
 city = cities.get('TX', 'Does Not Exist')
 print("The city for the state 'TX' is {}".format(city))
+
+#here is how you add to a dictionary
+print_line()
+states["Texas"] = "TX"
+state = states.get('Texas', None)
+if not state:
+    print("Sorry, no Texas.")
+else:
+    print("Texas abbreviation is ", state)
