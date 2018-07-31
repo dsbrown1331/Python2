@@ -1,0 +1,64 @@
+Review:
+
+Command line, how to run python3. Atom editor.
+
+Python basic data types and variables.
+-int
+-float
+-Bool
+
+input from command line using input()
+
+Arithmetic operators
+
+Arithmetic assignment operators
+
+
+printing numbers with .format
+printing with comma inside print()
+
+More data types:
+-String
+*concatenation
+indexing
+len()
+str()
+
+
+-List
+indexing
+appending
+len()
+
+For loops:
+for _ in range(num):
+for item in list:
+for char in string:
+
+-remove vowels
+
+
+
+-While loop
+-Automatic Psychiatrist
+print "That's interesting." after they type something.
+"Is there anything else on your mind."
+Ask if want to say anything else.
+
+
+Functions:
+-using built in functions
+float()
+int()
+len()
+str()
+
+-building our own Functions
+-fibonnaci
+-remove vowels
+
+Randomization
+
+Command line arguments
+
+File reading and writing
