@@ -1,15 +1,18 @@
+#return a dictionary mapping states to capitals
 def get_state_capitals(filename):
+    states2caps = dict()
     reader = open(filename)
     for line in reader:
         words = line.split(",")
         capital = words[0].strip()
         state = words[1].strip()
-        #debug print line
-        print("The capital of {} is {}".format(state, capital))
-    #TODO: return a dictionary mapping from states to capitals
-    #return put_your_dict_here
+        states2caps[state] = capital
+    return states2caps
 
 state_cap_dict = get_state_capitals("../Data/state_capitals.csv")
+print(state_cap_dict)
+states = list(state_cap_dict.keys())
+
 #TODO: use the dictionary to create a state capital
 #guessing game where the game asks you to name the capital of a state
 #simply iterate through the items in the dictionary
