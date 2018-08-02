@@ -4,7 +4,8 @@ import string
 #reads a file and counts word frequencies
 #in a dictionary
 #return dictionary of word frequencies
-def count_word_freqs(filename):
+def count_word_freqs(filename, ignorefile = None):
+    print(ignorefile)
     d = dict()
     reader = open(filename)
     for line in reader:
@@ -32,8 +33,9 @@ def most_freq_word(freq_dict):
 
 if __name__ == "__main__":
     filename = "../Data/alice_in_wonderland.txt"
-    word_cnts = count_word_freqs(filename)
-    print(word_cnts)
+    stopwords = "../Data/stop_words.txt"
+    word_cnts = count_word_freqs(filename, stopwords)
+    #print(word_cnts)
     print('the', word_cnts.get('the',0))
     print('alice', word_cnts.get('alice',0))
     print('liberty', word_cnts.get('liberty',0))
