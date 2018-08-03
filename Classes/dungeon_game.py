@@ -27,7 +27,7 @@ class OpeningScene(Scene):
     def enter(self):
         print("You stand at the entrance to a cave.")
         print("Wondering what is inside, you enter.")
-        return "cave_enterance"
+        return "cave_entrance"
 
 class CaveEntrance(Scene):
     def enter(self):
@@ -36,15 +36,17 @@ class CaveEntrance(Scene):
         if "right" in action.lower():
             print("You choose to go down the right tunnel")
             input("Enter to continue")
-            return "treasure_trove"
+            return "goblin"
         elif "left" in action.lower():
             print("You choose to go down the left tunnel")
             input("Enter to continue")
             return "dragon_lair"
+        elif "i win" in action.lower():
+            return 'treasure_trove'
         else:
             print("Action is not allowed")
             input("Enter to continue")
-            return  'cave_enterance'
+            return  'cave_entrance'
 
 class DragonLair(Scene):
     def enter(self):
@@ -56,7 +58,7 @@ class DragonLair(Scene):
         if "run" in action:
             print("You run back the way you came.")
             input("Enter to continue")
-            return 'cave_enterance'
+            return 'cave_entrance'
         elif "fight" in action:
             print("You ball up your fist and punch the dragon square in the nose")
             print("The dragon opens his mouth incinerates your flesh.")
@@ -74,13 +76,28 @@ class TreasureTrove(Scene):
         print("You return home happy, and very very rich.")
         exit()
 
+class Goblin(Scene):
+    def enter(self):
+        print("You meet a goblin")
+        action = input("Fight or flee?")
+        if "fight" in action.lower():
+            print("You rush the goblin, who disappears.")
+            return 'treasure_trove'
+        elif "flee" in action.lower():
+            print("You run away")
+            return 'cave_entrance'
+        else:
+            print("Invalid input")
+            return 'goblin'
+
 class Map(object):
     scenes = {
             'opening_scene' : OpeningScene(),
-            'cave_enterance' : CaveEntrance(),
+            'cave_entrance' : CaveEntrance(),
             'dragon_lair' : DragonLair(),
             'treasure_trove' : TreasureTrove(),
-            'death' : Death()
+            'death' : Death(),
+            'goblin' : Goblin()
             }
 
 
