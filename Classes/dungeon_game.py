@@ -44,7 +44,7 @@ class CaveEntrance(Scene):
         else:
             print("Action is not allowed")
             input("Enter to continue")
-            return  'cave_entrance'
+            return  'cave_enterance'
 
 class DragonLair(Scene):
     def enter(self):
