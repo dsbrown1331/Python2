@@ -5,7 +5,7 @@
 #{adj}, adjective
 #----------------
 I {vb} out of bed when my alarm clock {vbs} at 8:00am.
-I don't want to late for my first day of school.
+I don't want to be late for my first day of school.
 I am so excited that I barely eat my {nn} for breakfast.
 The school bus is packed with {plnn} all dressed in {adj} clothes for the new school year.
 My teacher's name is Mr. {nn}.
