@@ -8,10 +8,11 @@
 
 
 class MadLibs():
-    #TODO edit the init method so it takes a file as input when creating a MadLibs object
-    def __init__(self):
-        """initialize Madlib class with a madlibs file to read"""
 
+    def __init__(self, filename):
+        """initialize Madlib class with a madlibs file to read"""
+        self.madlibs_file = filename
+        self.replacements = dict()   #dictionary to hold fill in the blank info
 
     def parse_header(self):
         """
@@ -19,25 +20,47 @@ class MadLibs():
         Print the result to check. The dictionary should look something like this
         {''{nn}' : 'noun', '{plnn}' : 'plural noun', etc...}
         """
-        header_dict = dict()
+        #TODO: read from each file and find all header lines (lines that start with #)
 
-        #TODO: code here
+        #Hint:maybe use startswith("#"), split(",") strip() and slicing
 
-        return header_dict
+        #for debugging
+        print(self.replacements)
 
-    def get_story(self):
-        """store the story as a string by reading from the file"""
-        story = ""
 
-        #TODO: code here to read file
+    def replace_keys(self, text):
+        """return a copy of text with all parts of speech replaced with user input
+        """
+        new_text = text[:]
+        for key in self.replacements:
+            while new_text.find(key) != -1:
+                #TODO your code here to replace the first occurance of key with some input from the user
+                #Note that the value of the key is what you can ask the user to type in
+                #use new_text = new_text.replace() filling in the appropriate arguments
+        return new_text
 
-        return story
 
-    def 
+    def fill_in_blanks(self):
+        """store the story as a string and add each line by reading from the file"""
+        mad_story = ""
+        reader = open(self.madlibs_file)
+        for line in reader:
+            mad_story += self.replace_keys(line)
 
-    def build_story(self):
+        return mad_story
+
+
+
+    def run(self):
         #parse header
         d = self.parse_header()
-        #get story text
-        story = get_story()
-        #fill in the blanks
+        #get story text and fill in the blanks line by line
+        story = self.fill_in_blanks()
+        print("="*20)
+        print(story)
+        print("="*20)
+
+
+if __name__=="__main__":
+    story_gen = MadLibs("../Data/madlib.ml")
+    story_gen.run()
