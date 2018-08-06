@@ -4,6 +4,8 @@
 #{vbing}, verb ending in 'ing'
 #{bodypart}, part of the body
 #{number}, number
+#{game}, game
+#{place}, place
 #------------------------
 A vacation is when you take a trip some {adj} place with your {adj} family.
 Usually you go to some place this is near a/an {nn} or up on a/an {nn}.

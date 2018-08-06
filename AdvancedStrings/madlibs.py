@@ -21,8 +21,12 @@ class MadLibs():
         {''{nn}' : 'noun', '{plnn}' : 'plural noun', etc...}
         """
         #TODO: read from each file and find all header lines (lines that start with #)
-
-        #Hint:maybe use startswith("#"), split(",") strip() and slicing
+        reader = open(self.madlibs_file)
+        for line in reader:
+            if line.startswith("#"):
+                if "," in line:
+                    pos, query = line.split(",")
+                    self.replacements[pos[1:].strip()] = query.strip()
 
         #for debugging
         print(self.replacements)
@@ -34,11 +38,8 @@ class MadLibs():
         new_text = text[:]
         for key in self.replacements:
             while new_text.find(key) != -1:
-                #TODO: comment out the break
-                break
-                #TODO your code here to replace the first occurance of key with some input from the user
-                #Note that the value of the key is what you can ask the user to type in
-                #use new_text = new_text.replace() filling in the appropriate arguments
+                words = input("Type a " + self.replacements[key] + ": ")
+                new_text = new_text.replace(key, words, 1)
         return new_text
 
 
@@ -47,7 +48,8 @@ class MadLibs():
         mad_story = ""
         reader = open(self.madlibs_file)
         for line in reader:
-            mad_story += self.replace_keys(line)
+            if not line.startswith("#"):
+                mad_story += self.replace_keys(line)
 
         return mad_story
 
@@ -55,7 +57,7 @@ class MadLibs():
 
     def run(self):
         #parse header
-        d = self.parse_header()
+        self.parse_header()
         #get story text and fill in the blanks line by line
         story = self.fill_in_blanks()
         print("="*20)
@@ -64,5 +66,5 @@ class MadLibs():
 
 
 if __name__=="__main__":
-    story_gen = MadLibs("../Data/madlib.ml")
+    story_gen = MadLibs("../Data/vacations.ml")
     story_gen.run()
