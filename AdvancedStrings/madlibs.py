@@ -34,6 +34,8 @@ class MadLibs():
         new_text = text[:]
         for key in self.replacements:
             while new_text.find(key) != -1:
+                #TODO: comment out the break
+                break
                 #TODO your code here to replace the first occurance of key with some input from the user
                 #Note that the value of the key is what you can ask the user to type in
                 #use new_text = new_text.replace() filling in the appropriate arguments
