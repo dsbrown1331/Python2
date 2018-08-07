@@ -24,9 +24,13 @@ class MadLibs():
         reader = open(self.madlibs_file)
         for line in reader:
             if line.startswith("#"):
-                if "," in line:
-                    pos, query = line.split(",")
-                    self.replacements[pos[1:].strip()] = query.strip()
+                if line.startswith("#-"):
+                    continue
+                else:
+                    words = line.split(",")
+                    key = words[0][1:]
+                    value = words[1].strip()
+                    self.replacements[key] = value
 
         #for debugging
         print(self.replacements)
@@ -66,5 +70,5 @@ class MadLibs():
 
 
 if __name__=="__main__":
-    story_gen = MadLibs("../Data/vacations.ml")
+    story_gen = MadLibs("../Data/madlib.ml")
     story_gen.run()
