@@ -1,6 +1,6 @@
 import sys
-#sys.path.append("/home/dsbrown/Documents/ACES/github/Python2/")
-import text_summarization as ts
+sys.path.append("/home/dsbrown/Documents/ACES/github/Python2/")
+import Dictionaries.text_summarization as ts
 
 filename = "../Data/alice_in_wonderland.txt"
 stopwords = "../Data/stop_words.txt"
