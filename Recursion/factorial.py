@@ -11,5 +11,5 @@ def factorial(n):
 #TODO: write print lines to see every call and n value
 
 #code to test factorial()
-for i in range(1, 11d):
+for i in range(1, 11):
     print("{}! is {}".format(i, factorial(i)))
